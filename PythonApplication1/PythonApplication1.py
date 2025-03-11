@@ -8,7 +8,7 @@ if number>0:
 elif number<0:
     print("Число отрицательное.")
 else:
-    print(    "Число равно нулю.")
+    print("Число равно нулю.")
 
 
 #Ü2
