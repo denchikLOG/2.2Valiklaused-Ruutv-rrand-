@@ -96,29 +96,27 @@ else:
 
 #ü6
 
-import math
+def lahenda_ruutvorrand():
+    valik=input("Kas soovite lahendada ruutvõrrandi? (jah/ei): ").strip().lower()
+    if valik!="jah":
+        print("Head aega!")
+    try:
+        a=float(input("Sisestage kordaja a: "))
+        b=float(input("Sisestage kordaja b: "))
+        c=float(input("Sisestage kordaja c: "))
+    except:
+        print("Viga: Sisestage arvulised väärtused.")
+    if a==0:
+        print("Viga: kordaja a ei tohi olla 0.")
     D=b**2-4*a*c
+    print(f"Diskriminant D={D}") 
     if D>0:
         x1=(-b+math.sqrt(D))/(2*a)
         x2=(-b-math.sqrt(D))/(2*a)
-        print(f"Võrrandil on kaks lahendust: x1={x1:.2f},x2={x2:.2f}")
+        print(f"Kaks lahendit: x1={round(x1,2)}, x2={round(x2,2)}")
     elif D==0:
         x=-b/(2*a)
-        print(f"Võrrandil on üks lahendus: x={x:.2f}")
+        print(f"Üks lahend: x={round(x,2)}")
     else:
-        print("Võrrandil ei ole reaalseid lahendusi.")
-def main():
-    answer=input("Kas soovite lahendada ruutvõrrandi? (jah/ei): ").strip().lower()
-    if answer=="jah":
-        try:
-            a=float(input("Sisestage a väärtus: "))
-            b=float(input("Sisestage b väärtus: "))
-            c=float(input("Sisestage c väärtus: "))
-            if a==0:
-                print("a ei saa olla 0 ruutvõrrandi puhul.")
-            else:
-                print(solve_quadratic(a,b,c))
-        except :
-            print("Palun sisestage kehtivad arvud.")
-    else:
-        print("Head aega!")
+        print("Lahend puudub (D<0)")
+lahenda_ruutvorrand()
