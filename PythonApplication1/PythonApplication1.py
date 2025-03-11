@@ -96,27 +96,29 @@ else:
 
 #ü6
 
-def lahenda_ruutvorrand():
-    valik=input("Kas soovite lahendada ruutvõrrandi? (jah/ei): ").strip().lower()
-    if valik!="jah":
-        print("Head aega!")
+import math
+valik=input("Kas soovite lahendada ruutvõrrandi? (jah/ei): ")
+if valik!="jah":
+    print("Head aega!")
+else:
     try:
         a=float(input("Sisestage kordaja a: "))
         b=float(input("Sisestage kordaja b: "))
         c=float(input("Sisestage kordaja c: "))
+        if a==0:
+            print("Viga: kordaja a ei tohi olla 0.")
+        else:
+            D=b**2-4*a*c
+            print(f"Diskriminant D={D}")
+            if D>0:
+                x1=(-b+math.sqrt(D))/(2*a)
+                x2=(-b-math.sqrt(D))/(2*a)
+                print(f"Kaks lahendit: x1={round(x1, 2)}, x2={round(x2, 2)}")
+            elif D==0:
+                x=-b/(2*a)
+                print(f"Üks lahend: x={round(x, 2)}")
+            else:
+                print("Lahend puudub (D<0)")
     except:
         print("Viga: Sisestage arvulised väärtused.")
-    if a==0:
-        print("Viga: kordaja a ei tohi olla 0.")
-    D=b**2-4*a*c
-    print(f"Diskriminant D={D}") 
-    if D>0:
-        x1=(-b+math.sqrt(D))/(2*a)
-        x2=(-b-math.sqrt(D))/(2*a)
-        print(f"Kaks lahendit: x1={round(x1,2)}, x2={round(x2,2)}")
-    elif D==0:
-        x=-b/(2*a)
-        print(f"Üks lahend: x={round(x,2)}")
-    else:
-        print("Lahend puudub (D<0)")
-lahenda_ruutvorrand()
+
