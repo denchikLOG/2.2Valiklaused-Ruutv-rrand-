@@ -83,17 +83,42 @@ else:
 
 
 user_input=input("kirjuta number: ")
-
 if user_input():
     num=int(user_input)
-    print(f"täis arv. 50% arvest: {num * 0.5}")
-    
-elif user_input('.', '', 1) and user_input('.') == 1:
-    num = float(user_input)
-    print(f"Дробное arv. 70% arvest: {num * 0.7}")
-    
+    print(f"täis arv. 50% arvest: {num*0.5}")
+elif user_input("."," ", 1) and user_input(".")==1:
+    num=float(user_input)
+    print(f"Дробное arv. 70% arvest:{num*0.7}")    
 elif user_input():
-    print(f" {user_input}")
-
+    print(f"{user_input}")
 else:
     print("vale andmet")
+
+#ü6
+
+import math
+    D=b**2-4*a*c
+    if D>0:
+        x1=(-b+math.sqrt(D))/(2*a)
+        x2=(-b-math.sqrt(D))/(2*a)
+        print(f"Võrrandil on kaks lahendust: x1={x1:.2f},x2={x2:.2f}")
+    elif D==0:
+        x=-b/(2*a)
+        print(f"Võrrandil on üks lahendus: x={x:.2f}")
+    else:
+        print("Võrrandil ei ole reaalseid lahendusi.")
+def main():
+    answer=input("Kas soovite lahendada ruutvõrrandi? (jah/ei): ").strip().lower()
+    if answer=="jah":
+        try:
+            a=float(input("Sisestage a väärtus: "))
+            b=float(input("Sisestage b väärtus: "))
+            c=float(input("Sisestage c väärtus: "))
+            if a==0:
+                print("a ei saa olla 0 ruutvõrrandi puhul.")
+            else:
+                print(solve_quadratic(a,b,c))
+        except :
+            print("Palun sisestage kehtivad arvud.")
+    else:
+        print("Head aega!")
